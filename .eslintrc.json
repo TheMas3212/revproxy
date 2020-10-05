@@ -1,0 +1,13 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "semi": ["error", "always"]
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  }
+}

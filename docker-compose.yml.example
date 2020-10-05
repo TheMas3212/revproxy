@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  internal:
+    build: .
+    image: revproxy2:latest
+    restart: unless-stopped
+    volumes:
+      - "./mapping.json:/mnt/map.json:ro"
+    user: 65534:65534
+    ports:
+      - 0.0.0.0:80:8080/tcp
+      - 0.0.0.0:443:8443/tcp
+    cap_drop:
+      - ALL
+    environment:
+      - "MAPPING=/mnt/map.json"
+    secrets:
+      - privkey
+      - fullchain
+    # networks:
+    #   - internal_proxy
+
+secrets:
+  privkey:
+    file: /etc/letsencrypt/live/example.com/privkey.pem
+  fullchain:
+    file: /etc/letsencrypt/live/example.com/fullchain.pem
+
+## external network to attach services to
+# networks:
+#   internal_proxy:
+#     name: internal_proxy
+#     external: true

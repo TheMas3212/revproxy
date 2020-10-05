@@ -1,0 +1,6 @@
+[
+  {"host": "httpsite.example.com", "real": "http://internal.http.example.com:4000/"},
+  {"host": "httpssite.example.com", "real": "https://internal.https.example.com:5000/"},
+  {"host": "secure.example.com", "real": "http://internal.secure.example.com:6000/", "httpauth": "username:password"}
+]
+
