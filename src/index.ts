@@ -82,7 +82,7 @@ if (cluster.isMaster) {
       if (req.hostname === host) {
         mapitem.proxy.web(req, res);
         return;
-      } else if (host.startsWith('*') && req.hostname.endsWith(host)) {
+      } else if (host.startsWith('*') && req.hostname.endsWith(host.slice(2))) {
         mapitem.proxy.web(req, res);
         return;
       }
