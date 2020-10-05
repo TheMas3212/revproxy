@@ -10,6 +10,9 @@
   },
   "author": "TheMas3212",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/TheMas3212/revproxy"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
