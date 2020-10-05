@@ -6,7 +6,7 @@ RUN npm install --no-package-lock
 ADD [ "src", "src/" ]
 ADD [ "tsconfig.json", "." ]
 ADD [ ".eslintrc.json", "."]
-RUN npm run prestart
+RUN npm run build
 EXPOSE 8080
 EXPOSE 8443
 USER 65534:65534
