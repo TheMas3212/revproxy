@@ -38,7 +38,6 @@ if (cluster.isMaster) {
     }
   });
 
-
   const app: express.Application = express();
   const httpserver: http.Server = http.createServer(app);
   let httpsserver: https.Server;
@@ -99,7 +98,7 @@ if (cluster.isMaster) {
       if (hostname === host) {
         mapitem.proxy.ws(req, socket, head);
         return;
-      } else if (host.startsWith('*') && hostname.endsWith(host)) {
+      } else if (host.startsWith('*') && hostname.endsWith(host.slice(2))) {
         mapitem.proxy.ws(req, socket, head);
         return;
       }
