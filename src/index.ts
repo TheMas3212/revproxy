@@ -21,6 +21,7 @@ if (cluster.isMaster) {
   }
   cluster.on('exit', (worker, code, signal) => {
     console.log(`[${worker.id}/${Object.keys(cluster.workers).length}] worker ${worker.process.pid} died`);
+    cluster.fork();
   });
   process.on('SIGINT', () => {
     for (const worker in cluster.workers) {
